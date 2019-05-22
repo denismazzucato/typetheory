@@ -1,0 +1,25 @@
+
+\begin{displaymath}
+    (\forall x \in A)(\exists y \in B(x)) C(x, y) \to (\exists f \in A \to B)(\forall x \in A) C(x, Ap(f, x))\ true
+\end{displaymath}
+
+Per questo esercizio sono state svolte alcune semplificazioni:
+\begin{itemize}
+    \item Nessun tipo è stato provato essere derivabile in quanto essendo derviabili
+    \begin{displaymath}
+        A\ type\ [\Gamma],\ B(x)\ type\ [\Gamma, x \in A]\ and\ C(x, y)\ type\ [\Gamma, x \in A, y \in B(x)]
+    \end{displaymath}
+    saranno derivabili pure loro combinazioni tra somme indiciate e prodotti dipendenti
+    \item Per non inquinare eccessivamente lo spazio delle variabili utilizzo queste convenzioni:
+    \begin{displaymath}
+        x \in A,\ y \in B(x),\ f \in \Pi_{x \in A} B(x)\ and\ z \in \Pi_{x \in A} \Sigma_{y \in B(x)} C(x, y)
+    \end{displaymath}
+    \item La precedente assunzione può creare confusione nello \textit{scoping} delle variabili, per questo definisco una metrica di priorità per identificare univocamente lo \textit{scope} di una variabile:
+    \begin{enumerate}
+        \item \textit{Abstraction} (la più forte)
+        \item \textit{Indexed sum type} oppure \textit{Dependent product type}
+        \item \textit{Context} (il più debole)
+    \end{enumerate}
+\end{itemize}
+
+La dimostrazione è basata nell'interpretazione intuzionistica delle costanti logiche con le sostituzioni $\forall = \Pi$ e $\exists = \Sigma$ (\textit{propositions-as-sets} - \textit{Curry-Howard}). Iniziamo supponendo di avere una prova della prima parte $(\forall x)(\exists y)C(x, y)$, significa che abbiamo un metodo che quando applicato ad x tiene una prova di $(\exists y)C(x, y)$. Prendiamo $f$ come metodo che dato una arbitraria $x$ assegna la prima componente. Quindi sia $C(x, f(x))$ che segua con la seconda componente. Abbiamo così (ri)composto l'operatore.

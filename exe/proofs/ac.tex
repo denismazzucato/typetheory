@@ -1,0 +1,122 @@
+\begin{center}
+    \AXC{$
+        x \in A\ [z, x]
+    $}
+    \AXC{$
+        z \in \Pi_{x \in A} \Sigma_{y \in B(x)} C(x, y)\ [z, x]
+    $}
+    \LeftLabel{E-$\Pi$)}
+    \BIC{$
+        Ap(z, x)
+        \in \Sigma_{y \in B(x)} C(x, y)
+        \ [z, x]
+    $}
+    \RightLabel{$\pi_1$)}
+    \UIC{$
+        \pi_1 (Ap(z, x))
+        \in B(x)
+        \ [z, x]
+    $}
+    \noLine
+    \UIC{(A)}
+\DisplayProof
+\hspace{.1in}
+    \AXC{$
+        x \in A\ [z, x]
+    $}
+    \AXC{$
+        z \in \Pi_{x \in A} \Sigma_{y \in B(x)} C(x, y)\ [z, x]
+    $}
+    \RightLabel{E-$\Pi$)}
+    \BIC{$
+        Ap(z, x) \in \Sigma_{y \in B(x)} C(x, y)\ [z, x]
+    $}
+    \RightLabel{$\pi_2$)}
+    \UIC{$
+        \pi_2(Ap(z, x))
+        \in C(x, \pi_1(Ap(z, x)))
+        \ [z, x]
+    $}
+    \noLine
+    \UIC{(C)}
+\DisplayProof
+\end{center}
+\begin{prooftree}
+    \AXC{$
+        x \in A\ [z, x]
+    $}
+    \AXC{(A)}
+    \noLine
+    \UIC{$
+        \pi_1(Ap(z, x))
+        \in  B(x)
+        \ [z, x]
+    $}
+    \RightLabel{$\beta$C-$\Pi$)}
+    \BIC{$
+        Ap(\lambda x . \pi_1(Ap(z, x)), x) = \pi_1(Ap(z, x)) \in B(x)
+        \ [z, x]
+    $}
+    \RightLabel{sub)}
+    \UIC{$
+        C(x, Ap(\lambda x . \pi_1(Ap(z, x)), x)) = C(x, \pi_1(Ap(z, x)))\ type
+        \ [z, x]
+    $}
+    \AXC{(C)}
+    \noLine
+    \UIC{$
+        \pi_2(Ap(z, x))
+        \in C(x, \pi_1(Ap(z, x)))
+        \ [z, x]
+    $}
+    \RightLabel{conv)}
+    \BIC{$
+        \pi_2(Ap(z, x))
+        \in C(x, Ap(\lambda x . \pi_1(Ap(z, x)), x))
+        \ [z, x \in A]
+    $}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$
+        \lambda x . \pi_2(Ap(z, x))
+        \in \Pi_{x \in A} C(x, Ap(\lambda x . \pi_1(Ap(z, x)), x))
+        \ [z]
+    $}
+    \noLine
+    \UIC{(B)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{(A)}
+    \noLine
+    \UIC{$
+        \pi_1 (Ap(z, x))
+        \in B(x)
+        \ [z, x \in A]
+    $}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$
+        \lambda x . \pi_1 (Ap(z, x))
+        \in \Pi_{x \in A} B(x)
+        \ [z]
+    $}
+    \AXC{(B)}
+    \noLine
+    \UIC{$
+        \lambda x . \pi_2(Ap(z, x))
+        \in \Pi_{x \in A} C(x, Ap(\lambda x . \pi_1(Ap(z, x)), x))
+        \ [z]
+    $}
+    % \AXC{$\Pi_{x \in A} C(x, Ap(f, x))\ type\ [z, f \in \Pi_{x \in A} B(x)]$}
+    \RightLabel{I-$\Sigma$)}
+    \BIC{$
+        \langle \lambda x . \pi_1 (Ap(z, x)), \lambda x . \pi_2(Ap(z, x)) \rangle
+        \in \Sigma_{f \in \Pi_{x \in A} B(x)} \Pi_{x \in A} C(x, Ap(f, x))
+        \ [z \in \Pi_{x \in A} \Sigma_{y \in B(x)} C(x, y)]
+    $}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$
+        \lambda z . \langle \lambda x . \pi_1 (Ap(z, x)), \lambda x . \pi_2(Ap(z, x)) \rangle
+        \in \Pi_{z \in \Pi_{x \in A} \Sigma_{y \in B(x)} C(x, y)} \Sigma_{f \in \Pi_{x \in A} B(x)} \Pi_{x \in A} C(x, Ap(f, x))
+        \ [\ ]
+    $}
+\end{prooftree}

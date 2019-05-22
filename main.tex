@@ -1,0 +1,63 @@
+\documentclass{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% packages
+
+\usepackage{showframe}
+\usepackage[inline]{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=.5in, bottom=1in, top=.8in]{geometry}
+\usepackage{bussproofs}
+\usepackage{rotating}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% custom commands
+
+\newcommand{\ex}[2]{
+    \newpage
+    \section{#1}
+    \label{es:#2}
+    \input{exe/#2}
+    \vfill
+
+    \begin{center}\noindent\rule[0.5ex]{.5\linewidth}{1pt}\end{center}
+
+    \vfill
+    \input{exe/proofs/#2}
+}
+
+\newcommand{\little}[2]{
+    \section{#1}
+    \label{es:#2}
+    \input{exe/#2}
+
+    \begin{center}\noindent\rule[0.5ex]{.5\linewidth}{1pt}\end{center}
+
+    \input{exe/proofs/#2}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% env vars
+
+\title{Type Theory workbook}
+\author{Denis Mazzucato}
+\date{May 2019}
+
+\EnableBpAbbreviations
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% first page
+\maketitle
+\vfill
+\begin{center}
+Workbook for exercises given in the Type Theory (Maietti and Sambin) course at Padua in 2019
+\end{center}
+\newpage
+
+\tableofcontents
+\vfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% body
+
+\section*{Assunzioni}
+\input{assumptions}
+
+\input{exe/main}
+
+\end{document}

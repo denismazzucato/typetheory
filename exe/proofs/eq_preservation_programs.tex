@@ -1,0 +1,117 @@
+\begin{prooftree}
+    \AXC{$\pi_5$}
+    \noLine
+    \UIC{$f(x) \in B\ [w, x \in A]$}
+    \RightLabel{I-Id)}
+    \UIC{$id(f(x)) \in Id(B, f(x), f(x))\ [w, x \in A]$}
+    \noLine
+    \UIC{(B)}
+\end{prooftree}
+
+\begin{center}
+    \AXC{$\pi_1$}
+    \noLine
+    \UIC{$A\ type\ [w, x, y]$}
+    \AXC{$\pi_1$}
+    \noLine
+    \UIC{$A\ type\ [w, x]$}
+    \RightLabel{F-c)}
+    \UIC{$w, x, y \in A\ cont$}
+    \RightLabel{var)}
+    \UIC{$x \in A\ [w, x \in A, y]$}
+    \AXC{$\pi_1$}
+    \noLine
+    \UIC{$A\ type\ [w, x]$}
+    \RightLabel{F-c)}
+    \UIC{$w, x, y \in A\ cont$}
+    \RightLabel{var)}
+    \UIC{$y \in A\ [w, x, y \in A]$}
+    \RightLabel{F-Id)}
+    \TIC{$Id(A, x, y)\ type\ [w, x, y]$}
+    \noLine
+    \UIC{$(D)$}
+\DisplayProof
+    \AXC{(D)}
+    \noLine
+    \UIC{$Id(A, x, y)\ type\ [w, x, y]$}
+    \RightLabel{F-c)}
+    \UIC{$w, x, y, z \in  Id(A, x, y)\ cont$}
+    \RightLabel{var)}
+    \UIC{$y \in A\ [w, x, y \in A, z]$}
+    \AXC{$\pi_5$}
+    \noLine
+    \UIC{$f(x) \in B\ [w, x \in A]$}
+    \AXC{(D)}
+    \noLine
+    \UIC{$Id(A, x, y)\ type\ [w, x, y]$}
+    \RightLabel{F-c)}
+    \UIC{$w, x, y, z \in  Id(A, x, y)\ cont$}
+    \RightLabel{ind-ty)}
+    \BIC{$f(x) \in B\ [w, x, y, z]$}
+    \RightLabel{sub-ter)}
+    \BIC{$f(y) \in B\ [w, x, y, z]$}
+    \noLine
+    \UIC{(E)}
+\DisplayProof
+\end{center}
+% \begin{prooftree}
+%     \UIC{$y \in A\ [w, x, y, z]$}
+%     \RightLabel{sub-ter)}
+%     \BIC{$f(y) \in B\ [w, x, y, z]$}
+%     \noLine
+%     \UIC{(D)}
+% \end{prooftree}
+
+\begin{prooftree}
+    \AXC{$\pi_4$}
+    \noLine
+    \UIC{$B\ type\ [w, x, y, z]$}
+    \AXC{$\pi_5$}
+    \noLine
+    \UIC{$f(x) \in B\ [w, x \in A]$}
+    \AXC{(D)}
+    \noLine
+    \UIC{$Id(A, x, y)\ type\ [w, x, y]$}
+    \RightLabel{F-c)}
+    \UIC{$w, x, y, z \in  Id(A, x, y)\ cont$}
+    \RightLabel{ind-ty)}
+    \BIC{$f(x) \in B\ [w, x, y, z]$}
+    \AXC{(E)}
+    \noLine
+    \UIC{$f(y) \in B\ [w, x, y, z]$}
+    \RightLabel{F-Id)}
+    \TIC{{$Id(B, f(x), f(y))\ type\ [w, x \in A, y \in A, z \in Id(A, x, y)]$}}
+    \noLine
+    \UIC{(A)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{(A)}
+    \noLine
+    \UIC{$\cdots$}
+    \AXC{$\pi_2$}
+    \noLine
+    \UIC{$a \in A\ [w]$}
+    \AXC{$\pi_3$}
+    \noLine
+    \UIC{$b \in A\ [w]$}
+    \AXC{$\pi_1$}
+    \noLine
+    \UIC{$A\ type\ [\ ]$}
+    \AXC{$\pi_2$}
+    \noLine
+    \UIC{$a \in A\ [\ ]$}
+    \AXC{$\pi_3$}
+    \noLine
+    \UIC{$b \in A\ [\ ]$}
+    \TIC{$Id(A, a, b)\ type\ [\ ]$}
+    \RightLabel{F-c)}
+    \UIC{$w \in Id(A, a, b)\ cont$}
+    \RightLabel{var)}
+    \UIC{$w \in Id(A, a, b)\ [w \in Id(A, a, b)]$}
+    \AXC{(B)}
+    \noLine
+    \UIC{$\cdots$}
+    \RightLabel{E-Id)}
+    \QuinaryInfC{$El_{Id} (w, (x).id(f(x))) \in Id(B, f(a), f(b))\ [w \in Id(A, a, b)]$}
+\end{prooftree}

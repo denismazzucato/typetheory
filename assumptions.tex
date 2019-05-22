@@ -1,0 +1,9 @@
+Per semplificare la scrittura degli esercizi utilizzo alcune semplificazioni, l'unico esercizio svolto per intero senza omettere alcun tipo di passaggio è la preservazione dell'uguaglianza tra programmi (\ref{es:eq_preservation_programs})
+
+\begin{itemize}
+    \item Il tipo delle variabili dentro il contesto deve essere specificato solo dove è necessario. Ovvero quando la variabile è inserita per la prima volta dentro al contesto oppure durante l'utilizzo della regola \textit{var)} che richiede di abbinare il giudizio con la variabile dentro al contesto. In qualche raro caso se compare una $\Gamma$ al posto del contesto è per problemi di spazio e significa che il contesto non è mutato dal passo precedente.
+    \item Se devo derivare un giudizio del tipo $a \in A\ [\Gamma, a \in A, \Delta]$ e il contesto $\Gamma, a \in A, \Delta$ è \textit{semplice} allora concludo che riesco a derivarlo. Solo in casi dove il contesto non è banale continuo con la derivazione.
+    \item Se il contesto è \textit{banale} allora posso indebolirlo senza dover utilizzare le regole di indebolimento.
+    \item Posso concludere con i tre punti verticali quando la stessa parte della dimostrazione è già stata svolta in un altro ramo differente nello stesso albero.
+    \item Quando mi riferisco ad una \textit{Label} la trovo definita sempre sopra il punto in cui mi trovo, per problemi di spazio alcune volte ometto di ripetere la formula e la rimpiazzo con dei puntini.
+\end{itemize}

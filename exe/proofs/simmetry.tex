@@ -1,0 +1,23 @@
+\begin{prooftree}
+    \AXC{$Id(A, y, x)\ type\ [w, x \in A, y \in A, z \in Id(A, a, b)]$}
+    \noLine
+    \UIC{(A)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{(A)}
+    \noLine
+    \UIC{$\cdots$}
+    \AXC{$\pi_2$}
+    \noLine
+    \UIC{$a \in A\ [w]$}
+    \AXC{$\pi_3$}
+    \noLine
+    \UIC{$b \in A\ [w]$}
+    \AXC{$w \in Id(A, a, b)\ [w]$}
+    \AXC{$x \in A\ [w, x]$}
+    \RightLabel{I-Id)}
+    \UIC{$id(x) \in Id(A, x, x)\ [w, x \in A]$}
+    \RightLabel{E-Id)}
+    \QuinaryInfC{$El_{Id} (w, id) \in Id(A, b, a)\ [w \in Id(A, a, b)]$}
+\end{prooftree}

@@ -1,0 +1,50 @@
+\begin{prooftree}
+    \AXC{$\pi_1$}
+    \noLine
+    \UIC{$A\ type\ [\Gamma]$}
+    \AXC{$\pi_2$}
+    \noLine
+    \UIC{$a \in A\ [\Gamma]$}
+    \AXC{$x \in A\ [w_1, w_2, x \in A, y]$}
+    \TIC{$Id(A, a, x)\ type\ [w_1, w_2, x, y]$}
+    \AXC{$\pi_1$}
+    \noLine
+    \UIC{$A\ type\ [\Gamma]$}
+    \AXC{$\pi_2$}
+    \noLine
+    \UIC{$a \in A\ [\Gamma]$}
+    \AXC{$y \in A\ [w_1, w_2, x, y \in A]$}
+    \TIC{$Id(A, a, y)\ type\ [w_1, w_2, x, y]$}
+    \RightLabel{F-$to$)}
+    \BIC{$Id(A, a, x) \to Id(A, a, y)\ type\ [w_1, w_2, x \in A, y \in A, z \in Id(A, x, y)]$}
+    \noLine
+    \UIC{(A)}
+\end{prooftree}
+\begin{prooftree}
+    \AXC{$w \in Id(A, a, x) [w_1, w_2, x, w \in Id(A, a, x)]$}
+    \RightLabel{I-$\to$)}
+    \UIC{$\lambda w.w \in Id(A, a, x) \to Id(A, a, x) [w_1, w_2, x \in A]$}
+    \noLine
+    \UIC{(B)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$w_1 \in Id(A, a, b)\ [w_1, w_2]$}
+    \AXC{(A)}
+    \noLine
+    \UIC{$\cdots$}
+    \AXC{$\pi_3$}
+    \noLine
+    \UIC{$b \in A\ [w_1, w_2]$}
+    \AXC{$\pi_4$}
+    \noLine
+    \UIC{$c \in A\ [w_1, w_2]$}
+    \AXC{$w_2 \in Id(A, b, c)\ [w_1, w_2]$}
+    \AXC{(B)}
+    \noLine
+    \UIC{$\cdots$}
+    \RightLabel{E-Id)}
+    \QuinaryInfC{$El_{Id}(w_2, \lambda w.w) \in Id(A, a, b) \to Id(A, a, c)\ [w_1, w_2]$}
+    \RightLabel{E-$\to$)}
+    \BIC{$Ap(El_{Id}(w_2, \lambda w.w), w_1) \in Id(A, a, c)\ [w_1 \in Id(A, a, b), w_2 \in Id(A, b, c)]$}
+\end{prooftree}
