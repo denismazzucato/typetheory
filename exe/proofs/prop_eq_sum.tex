@@ -1,0 +1,71 @@
+\begin{prooftree}
+    \AXC{$El_{Id}(\cdots, \cdots) \in Id(Nat, succ(x) +_1 0, succ(x) +_2 0)\ [x', x \in Nat, z \in Id(Nat, x +_1 0, x +_2 0)]$}
+    \noLine
+    \UIC{(C)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$0 \in Nat\ [x']$}
+    \AXC{$Nat\ type\ [x']$}
+    \AXC{$0 \in Nat\ [x']$}
+    \AXC{$z \in Nat\ [x', x, z \in Nat]$}
+    \RightLabel{Nat-I$_2$)}
+    \UIC{$succ(z) \in Nat\ [x', x \in Nat, z \in Nat]$}
+    \RightLabel{Nat-e)}
+    \QuaternaryInfC{$El_{Nat}(0, 0, (x,z).succ(z)) \in Nat\ [x']$}
+    \RightLabel{ref}
+    \UIC{$El_{Nat}(0, 0, (x,z).succ(z)) = El_{Nat}(0, 0, (x,z).succ(z)) \in Nat\ [x']$}
+    \noLine
+    \UIC{(F)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$\vdots$}
+    \noLine
+    \UIC{$0 +_1 0 \in Nat\ [x']$}
+    \RightLabel{I-id)}
+    \UIC{$id(0 +_1 0) \in Id(Nat, 0 +_1 0, 0 +_1 0)\ [x']$}
+    \AXC{$\vdots$}
+    \noLine
+    \UIC{$0 +_1 0 \in Nat\ [x']$}
+    \RightLabel{ref)}
+    \UIC{$0 +_1 0 = 0 +_1 0 \in Nat\ [x']$}
+    \AXC{(F)}
+    \noLine
+    \UIC{$0 +_2 0 = 0 +_1 0 \in Nat\ [x']$}
+    \RightLabel{sub-b)}
+    \BIC{$Id(Nat, 0 +_1 0, 0 +_2 0) = Id(Nat, 0 +_1 0, 0 +_1 0) [x']$}
+    \RightLabel{conv)}
+    \BIC{$id(0 +_1 0) \in Id(Nat, 0 +_1 0, 0 +_2 0)\ [x']$}
+    \noLine
+    \UIC{(B)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$Nat\ type\ [x']$}
+    \AXC{(D)}
+    \noLine
+    \UIC{$El_{Nat}(0, x', (x,z).succ(z)) \in Nat\ [x']$}
+    \AXC{(E)}
+    \noLine
+    \UIC{$El_{Nat}(x', 0, (x,z).succ(z)) \in Nat\ [x']$}
+    \RightLabel{F-Id)}
+    \TIC{$Id(Nat, x' +_1 0, x' +_2 0)\ type\ [x']$}
+    \noLine
+    \UIC{(A)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$x' \in Nat\ [x' \in Nat]$}
+    \AXC{(A)}
+    \noLine
+    \UIC{$Id(Nat, x' +_1 0, x' +_2 0)\ type\ [x']$}
+    \AXC{(B)}
+    \noLine
+    \UIC{$id(0 +_1 0) \in Id(Nat, 0 +_1 0, 0 +_2 0)\ [x']$}
+    \AXC{(C)}
+    \noLine
+    \UIC{$\cdots$}
+    \RightLabel{Nat-e)}
+    \QuaternaryInfC{$El_{Nat}(x', id(0 +_1 0), (x, z).El_{Id}(\cdots, \cdots)) \in Id(Nat, x' +_1 0, x' +_2 0)\ [x' \in Nat]$}
+\end{prooftree}

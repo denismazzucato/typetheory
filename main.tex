@@ -2,12 +2,13 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% packages
 
-\usepackage{showframe}
+% \usepackage{showframe}
 \usepackage[inline]{enumitem}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=.5in, bottom=1in, top=.8in]{geometry}
 \usepackage{bussproofs}
 \usepackage{rotating}
+\usepackage{framed}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% custom commands
 
@@ -16,12 +17,9 @@
     \section{#1}
     \label{es:#2}
     \input{exe/#2}
-    \vfill
-
-    \begin{center}\noindent\rule[0.5ex]{.5\linewidth}{1pt}\end{center}
-
-    \vfill
-    \input{exe/proofs/#2}
+    \begin{framed}
+        \input{exe/proofs/#2}
+    \end{framed}
 }
 
 \newcommand{\little}[2]{
@@ -29,9 +27,9 @@
     \label{es:#2}
     \input{exe/#2}
 
-    \begin{center}\noindent\rule[0.5ex]{.5\linewidth}{1pt}\end{center}
-
-    \input{exe/proofs/#2}
+    \begin{framed}
+        \input{exe/proofs/#2}
+    \end{framed}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% env vars
