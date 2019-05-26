@@ -1,71 +1,63 @@
+
 \begin{prooftree}
-    \AXC{$El_{Id}(\cdots, \cdots) \in Id(Nat, succ(x) +_1 0, succ(x) +_2 0)\ [x', x \in Nat, z \in Id(Nat, x +_1 0, x +_2 0)]$}
+    \AXC{$id(succ(\hat{x})) \in Id(Nat, succ(\hat{x}), succ(\hat{x})) [x', x, z, \hat{x} \in Nat]$}
+    \noLine
+    \UIC{(D)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$z \in Id(Nat, x, x +_2 0)\ [x', x, z \in Id(Nat, x, x +_2 0)]$}
     \noLine
     \UIC{(C)}
 \end{prooftree}
 
 \begin{prooftree}
-    \AXC{$0 \in Nat\ [x']$}
-    \AXC{$Nat\ type\ [x']$}
-    \AXC{$0 \in Nat\ [x']$}
-    \AXC{$z \in Nat\ [x', x, z \in Nat]$}
-    \RightLabel{Nat-I$_2$)}
-    \UIC{$succ(z) \in Nat\ [x', x \in Nat, z \in Nat]$}
-    \RightLabel{Nat-e)}
-    \QuaternaryInfC{$El_{Nat}(0, 0, (x,z).succ(z)) \in Nat\ [x']$}
-    \RightLabel{ref}
-    \UIC{$El_{Nat}(0, 0, (x,z).succ(z)) = El_{Nat}(0, 0, (x,z).succ(z)) \in Nat\ [x']$}
-    \noLine
-    \UIC{(F)}
-\end{prooftree}
-
-\begin{prooftree}
-    \AXC{$\vdots$}
-    \noLine
-    \UIC{$0 +_1 0 \in Nat\ [x']$}
-    \RightLabel{I-id)}
-    \UIC{$id(0 +_1 0) \in Id(Nat, 0 +_1 0, 0 +_1 0)\ [x']$}
-    \AXC{$\vdots$}
-    \noLine
-    \UIC{$0 +_1 0 \in Nat\ [x']$}
-    \RightLabel{ref)}
-    \UIC{$0 +_1 0 = 0 +_1 0 \in Nat\ [x']$}
-    \AXC{(F)}
-    \noLine
-    \UIC{$0 +_2 0 = 0 +_1 0 \in Nat\ [x']$}
-    \RightLabel{sub-b)}
-    \BIC{$Id(Nat, 0 +_1 0, 0 +_2 0) = Id(Nat, 0 +_1 0, 0 +_1 0) [x']$}
-    \RightLabel{conv)}
-    \BIC{$id(0 +_1 0) \in Id(Nat, 0 +_1 0, 0 +_2 0)\ [x']$}
+    \AXC{$Id(Nat, succ(\hat{x}), succ(\hat{y}))\ type\ [x', x, z, \hat{x} \in Nat, \hat{y} \in Nat, \hat{z} \in Id(Nat, \hat{x}, \hat{y})]$}
     \noLine
     \UIC{(B)}
 \end{prooftree}
 
 \begin{prooftree}
-    \AXC{$Nat\ type\ [x']$}
+    \AXC{(B)}
+    \noLine
+    % \UIC{$Id(Nat, x +_1 0, y)\ type\ [\Gamma, \hat{x} \in Nat, \hat{y} \in Nat, \hat{z} \in Id(Nat, \hat{x}, \hat{y})]$}
+    \UIC{$\cdots$}
+    \AXC{$x \in Nat\ [x', x, z]$}
+    \AXC{$x +_2 0 \in Nat\ [x', x, z]$}
+    \AXC{(C)}
+    \noLine
+    \UIC{$\cdots$}
     \AXC{(D)}
     \noLine
-    \UIC{$El_{Nat}(0, x', (x,z).succ(z)) \in Nat\ [x']$}
-    \AXC{(E)}
-    \noLine
-    \UIC{$El_{Nat}(x', 0, (x,z).succ(z)) \in Nat\ [x']$}
-    \RightLabel{F-Id)}
-    \TIC{$Id(Nat, x' +_1 0, x' +_2 0)\ type\ [x']$}
+    \UIC{$\cdots$}
+    \RightLabel{E-Id)}
+    \QuinaryInfC{$El_{Id}(z, (\hat{x}).id(succ(\hat{x}))) \in Id(Nat, succ(x), succ(x +_2 0))\ [x', x \in Nat, z \in Id(Nat, x, x +_2 0)]$}
+    \dashedLine
+    \RightLabel{(3)}
+    \UIC{$El_{Id}(z, (\hat{x}).id(succ(\hat{x}))) \in Id(Nat, succ(x), succ(x) +_2 0)\ [x', x \in Nat, z \in Id(Nat, x, x +_2 0)]$}
     \noLine
     \UIC{(A)}
 \end{prooftree}
 
 \begin{prooftree}
     \AXC{$x' \in Nat\ [x' \in Nat]$}
+    \AXC{$Id(Nat, x', x' +_2 0)\ type\ [x']$}
+    \AXC{$id(0) \in Id(Nat, 0, 0)\ [x']$}
+    \dashedLine
+    \RightLabel{(2)}
+    \UIC{$id(0) \in Id(Nat, 0, 0 +_2 0)\ [x']$}
     \AXC{(A)}
-    \noLine
-    \UIC{$Id(Nat, x' +_1 0, x' +_2 0)\ type\ [x']$}
-    \AXC{(B)}
-    \noLine
-    \UIC{$id(0 +_1 0) \in Id(Nat, 0 +_1 0, 0 +_2 0)\ [x']$}
-    \AXC{(C)}
     \noLine
     \UIC{$\cdots$}
     \RightLabel{Nat-e)}
-    \QuaternaryInfC{$El_{Nat}(x', id(0 +_1 0), (x, z).El_{Id}(\cdots, \cdots)) \in Id(Nat, x' +_1 0, x' +_2 0)\ [x' \in Nat]$}
+    \QuaternaryInfC{$El_{Nat}(x', id(0), (x, z).El_{Id}(z, (\hat{x}).id(succ(\hat{x})))) \in Id(Nat, x', x' +_2 0)\ [x' \in Nat]$}
+    \dashedLine
+    \RightLabel{(1)}
+    \UIC{$El_{Nat}(x', id(0), (x, z).El_{Id}(z, (\hat{x}).id(succ(\hat{x})))) \in Id(Nat, x' +_1 0, x' +_2 0)\ [x' \in Nat]$}
 \end{prooftree}
+
+\begin{align*}
+    (1) & \qquad x' +_1 0 \equiv El_{Nat}(0, x', (x, z).succ(z)) = x'\\
+    (2) & \qquad 0 +_2 0 \equiv El_{Nat}(0, 0, (x, z).succ(z)) = 0\\
+    (3) & \qquad succ(x) +_2 0 \equiv El_{Nat}(succ(x), 0, (x, z).succ(z)) = succ(El_{Nat}(x, 0, (x, z).succ(z))) \equiv succ(x +_2 0)
+\end{align*}
