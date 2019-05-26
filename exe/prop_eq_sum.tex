@@ -7,3 +7,8 @@ Date le seguenti definizioni:
     \item $x' +_1 y' \equiv El_{Nat} (y', x', (x, z).succ(z))$
     \item $x' +_2 y' \equiv El_{Nat} (x', y', (x, z).succ(z))$
 \end{itemize}
+La dimostrazione è basata sulla proposizione $x +_2 0 = 0$ e la si prova induttivamente.
+Se vale nel caso base, quindi applicata a $0$ ($0 +_2 0 = 0$), e se vale nel passo induttivo, quindi applicata al successore, allora vale per un qualsiasi $x$.
+Quando la applichiamo al passo successivo ipotizziamo di avere una prova che vale al passo precedente.\\
+Le sostituzioni composizionali e definizionali sono specificate alla fine, con l'identificativo associato per identificarle facilmente durante la prova.
+Possiamo eseguire queste sostituzioni formalmente utilizzando le regole di sostituzione e conversione.

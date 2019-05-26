@@ -1,4 +1,12 @@
 \begin{prooftree}
+    \AXC{$w \in Id(A, a, x) [w_1, w_2, x, w \in Id(A, a, x)]$}
+    \RightLabel{I-$\to$)}
+    \UIC{$\lambda w.w \in Id(A, a, x) \to Id(A, a, x) [w_1, w_2, x \in A]$}
+    \noLine
+    \UIC{(B)}
+\end{prooftree}
+
+\begin{prooftree}
     \AXC{$\pi_1$}
     \noLine
     \UIC{$A\ type\ [\Gamma]$}
@@ -19,13 +27,6 @@
     \BIC{$Id(A, a, x) \to Id(A, a, y)\ type\ [w_1, w_2, x \in A, y \in A, z \in Id(A, x, y)]$}
     \noLine
     \UIC{(A)}
-\end{prooftree}
-\begin{prooftree}
-    \AXC{$w \in Id(A, a, x) [w_1, w_2, x, w \in Id(A, a, x)]$}
-    \RightLabel{I-$\to$)}
-    \UIC{$\lambda w.w \in Id(A, a, x) \to Id(A, a, x) [w_1, w_2, x \in A]$}
-    \noLine
-    \UIC{(B)}
 \end{prooftree}
 
 \begin{prooftree}
