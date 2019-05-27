@@ -1,9 +1,26 @@
 \begin{prooftree}
+    \AXC{$El_{Nat}(y, id(0), ??) \in Id_N(0 +_1 y, y) [\Gamma]$}
+    \UIC{$d' \in Id_N(succ(0 +_1 y), succ(y))\ [\Gamma]$}
+    \dashedLine
+    \UIC{$d' \in Id_N(succ(0 +_1 y), 0 +_2 succ(y))\ [\Gamma]$}
+    \AXC{(Equality preserv. \ref{es:eq_preservation_programs})}
+    \UIC{$e' \in Id_N(succ(succ(x) +_1 y), succ(x +_2 succ(y)))\ [\Gamma, x \in Nat, z' \in Id_N(succ(x +_1 y), x +_2 succ(y))]$}
+    \dashedLine
+    \UIC{$e' \in Id_N(succ(succ(x) +_1 y), succ(x) +_2 succ(y))\ [\Gamma, x \in Nat, z' \in Id_N(succ(x +_1 y), x +_2 succ(y))]$}
+    \RightLabel{Nat-e)}
+    \BIC{$ El_{Nat}(x', , )\in Id_N(succ(x' +_1 y), x' +_2 succ(y))\ [\Gamma, y \in Nat, z \in Id_N(x' +_1 y, x' +_2 y)]$}
+    \noLine
+    \UIC{(A)}
+\end{prooftree}
+
+\begin{prooftree}
     \AXC{(Propositional Eq. (Basic) \ref{es:prop_eq_sum})}
     \UIC{$d \in Id_{N}(x', x' +_2 0) [\Gamma]$}
     \dashedLine
     \UIC{$d \in Id_{N}(x' +_1 0, x' +_2 0) [\Gamma]$}
-    \AXC{}
+    \AXC{(A)}
+    \noLine
+    \UIC{$e \in Id_N(succ(x' +_1 y), x' +_2 succ(y))\ [\Gamma, y \in Nat, z \in Id_N(x' +_1 y, x' +_2 y)]$}
     \dashedLine
     \UIC{$e \in Id_N(x' +_1 succ(y), x' +_2 succ(y))\ [\Gamma, y \in Nat, z \in Id_N(x' +_1 y, x' +_2 y)]$}
     \RightLabel{Nat-e)}
