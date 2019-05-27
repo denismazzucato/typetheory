@@ -1,6 +1,25 @@
 Dimostrare quali assiomi di Peano continuano a valere dentro la nostra teoria dei tipi:
-\begin{center}
-\begin{enumerate}[label=$\textbf{Ax\arabic*}$. \textbf{pf} $\in$)]
-    \item succ(x)
-\end{enumerate}
-\end{center}
+\begin{align*}
+    \textbf{Ax1}.&\quad \vdash 0 \in Nat&\\
+    \textbf{Ax2}.&\quad \vdash \forall x. x = x& (eq.\ is\ reflexive)\\
+    \textbf{Ax3}.&\quad \vdash \forall x. \forall y. x = y \rightarrow y = x& (eq.\ is\ symmetric)\\
+    \textbf{Ax4}.&\quad \vdash \forall x. \forall y. \forall z. x = y \wedge y = z \rightarrow x = z& (eq.\ is\ transitive)\\
+    \textbf{Ax5}.&\quad x \in Nat, x = y \vdash y \in Nat& (Nat\ are\ closed\ under\ eq.)\\
+    \textbf{Ax6}.&\quad x \in Nat \vdash succ(x) \in Nat&\\
+    \textbf{Ax7}.&\quad \vdash \forall x. \forall y. x = y \leftrightarrow succ(x) = succ(y)& (succ\ is\ injective)\\
+    \textbf{Ax8}.&\quad \vdash \forall x. \neg(0 = succ(x))&\\
+    \textbf{Ax9}.&\quad D\ set, 0 \in D, \forall x.succ(x) \in D \vdash D\ true & (axiom\ of\ induction)
+\end{align*}
+Per essere derivabili significa che siano derivabili i seguenti giudizi:
+\begin{align*}
+    \textbf{Ax1}.&\quad 0 \in Nat&\\
+    \textbf{Ax2}.&\quad \textbf{pf} \in \Pi_{x \in Nat} Id(Nat, x, x)&\\
+    \textbf{Ax3}.&\quad \textbf{pf} \in \Pi_{x \in Nat} \Pi_{y \in Nat} Id(Nat, x, y) \rightarrow Id(Nat, y, x)&\\
+    \textbf{Ax4}.&\quad \textbf{pf} \in \Pi_{x \in Nat} \Pi_{y \in Nat} \Pi_{z \in Nat} Id(Nat, x, y) \rightarrow Id(Nat, y, z) \rightarrow Id(Nat, x, z)&\\
+    \textbf{Ax5}.&\quad b \in Nat\ [a \in Nat, w \in Id(Nat, a, b)]&\\
+    \textbf{Ax6}.&\quad succ(x) \in Nat\ [x \in Nat]&\\
+    \textbf{Ax7}.&\quad \textbf{pf} \in \Pi_{x \in Nat} \Pi_{y \in Nat} Id(Nat, x, y) \leftrightarrow Id(Nat, succ(x), succ(y))&\\
+    \textbf{Ax8}.&\quad \textbf{pf} \in \Pi_{x \in Nat} Id(Nat, 0, succ(x)) \rightarrow N_0&\\
+    \textbf{Ax9}.&\quad \pi_1)\ D\ type\ [\ ],\ \pi_2)\ 0 \in D\ [\ ],\ \pi_3)\ succ(x) \in D\ [x \in Nat]\\
+        &\quad \textbf{pf} \in D\ [x \in Nat]
+\end{align*}

@@ -1,0 +1,11 @@
+\begin{displaymath}
+    \textbf{pf} \in Id(Nat, x' +_1 y', x' +_2 y')\ [x' \in Nat, y' \in Nat]
+\end{displaymath}
+Date le seguenti definizioni:
+\begin{itemize}
+    \item $x' +_1 y' \equiv El_{Nat} (y', x', (x, z).succ(z))$
+    \item $x' +_2 y' \equiv El_{Nat} (x', y', (x, z).succ(z))$
+    \item $Id_N(a, b) \equiv Id(Nat, a, b)$
+\end{itemize}
+Per questa dimostrazione ho utilizzato la sintassi più sintetica possibile, questo significa che alcuni passaggi sono stati completamente saltati, ad esempio, se una regola richiede il \textit{check} di una variabile in contesto e quella variabile è presente non vado a derivarla.
+Inoltre per non incuinare troppo il contesto se per esempio ho da aggiungere una $x$ al contesto in cui appare già una $x$ semplicemente la sua precedente apparizione la nascondo sotto $\Gamma$ (diventa quindi \textit{inacessibile}).

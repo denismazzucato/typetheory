@@ -1,0 +1,15 @@
+\begin{prooftree}
+    \AXC{(Propositional Eq. (Basic) \ref{es:prop_eq_sum})}
+    \UIC{$d \in Id_{N}(x', x' +_2 0) [\Gamma]$}
+    \dashedLine
+    \UIC{$d \in Id_{N}(x' +_1 0, x' +_2 0) [\Gamma]$}
+    \AXC{}
+    \dashedLine
+    \UIC{$e \in Id_N(x' +_1 succ(y), x' +_2 succ(y))\ [\Gamma, y \in Nat, z \in Id_N(x' +_1 y, x' +_2 y)]$}
+    \RightLabel{Nat-e)}
+    \BIC{$
+        El_{Nat}(y', d, e)
+        \in Id_N(x' +_1 y', x' +_2 y')
+        \ [x' \in Nat, y' \in Nat]
+    $}
+\end{prooftree}

@@ -1,0 +1,193 @@
+\begin{center}
+    \AXC{$[\ ]\ cont$}
+    \RightLabel{Nat-I$_1$)}
+    \UIC{$0 \in Nat\ [\ ]$}
+    \noLine
+    \UIC{(\textbf{Ax1})}
+\DisplayProof
+\hspace{.1in}
+    \AXC{$[\ ]\ cont$}
+    \RightLabel{Nat-F)}
+    \UIC{$Nat\ type\ [\ ]$}
+    \RightLabel{F-c)}
+    \UIC{$x \in Nat\ cont$}
+    \RightLabel{var)}
+    \UIC{$x \in Nat\ [x \in Nat]$}
+    \RightLabel{I-Id)}
+    \UIC{$id(x) \in Id(Nat, x, x)\ [x \in Nat]$}
+    \RightLabel{I-$\to$)}
+    \UIC{$ \lambda x. id(x) \in \Pi_{x \in Nat} Id(Nat, x, x)\ [\ ]$}
+    \noLine
+    \UIC{(\textbf{Ax2})}
+\DisplayProof
+\end{center}
+
+\begin{prooftree}
+    \AXC{(Simmetry \ref{es:simmetry})}
+    \RightLabel{E-Id)}
+    \UIC{$El_{Id} (w, id) \in Id(Nat, y, x)\ [x \in Nat, y \in Nat, w \in  Id(Nat, x, y)]$}
+    \RightLabel{I-$\to$)}
+    \UIC{$\lambda w. El_{Id} (w, id) \in Id(Nat, x, y) \rightarrow Id(Nat, y, x)\ [x \in Nat, y \in Nat]$}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$\lambda y. \lambda w. El_{Id} (w, id) \in \Pi_{y \in Nat} Id(Nat, x, y) \rightarrow Id(Nat, y, x)\ [x \in Nat]$}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$\lambda x. \lambda y. \lambda w. El_{Id} (w, id) \in \Pi_{x \in Nat} \Pi_{y \in Nat} Id(Nat, x, y) \rightarrow Id(Nat, y, x)\ [\ ]$}
+    \noLine
+    \UIC{(\textbf{Ax3})}
+\end{prooftree}
+\begin{prooftree}
+    \AXC{(Transitivity, Martin-Löf’s \ref{es:transitivity_ml})}
+    \RightLabel{E-$\to$)}
+    \UIC{$Ap(El_{Id}(w_2,\lambda w.w),w_1)\in Id(Nat, x, z)\ [x \in Nat, y \in Nat, z \in Nat, w_1 \in Id(Nat, x, y), w_2 \in Id(Nat, y, z)]$}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$\lambda w_2. Ap(El_{Id}(w_2,\lambda w.w),w_1)\in Id(Nat, y, z) \rightarrow Id(Nat, x, z)\ [\Gamma, w_1 \in Id(Nat, x, y)]$}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$\lambda w_1. \lambda w_2. Ap(El_{Id}(w_2,\lambda w.w),w_1)\in Id(Nat, x, y) \rightarrow Id(Nat, y, z) \rightarrow Id(Nat, x, z)\ [\Gamma, z \in Nat]$}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$\lambda z. \lambda w_1. \lambda w_2. Ap(El_{Id}(w_2,\lambda w.w),w_1)\in \Pi_{z \in Nat} Id(Nat, x, y) \rightarrow Id(Nat, y, z) \rightarrow Id(Nat, x, z)\ [\Gamma, y \in Nat]$}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$\lambda y. \lambda z. \lambda w_1. \lambda w_2. Ap(El_{Id}(\cdots),w_1)\in \Pi_{y \in Nat} \Pi_{z \in Nat} Id(Nat, x, y) \rightarrow Id(Nat, y, z) \rightarrow Id(Nat, x, z)\ [x \in Nat]$}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$\lambda x. \lambda y. \lambda z. \lambda w_1. \lambda w_2. Ap(El_{Id}(\cdots),w_1)\in \Pi_{x \in Nat} \Pi_{y \in Nat} \Pi_{z \in Nat} Id(Nat, x, y) \rightarrow Id(Nat, y, z) \rightarrow Id(Nat, x, z)\ [\ ]$}
+    \noLine
+    \UIC{(\textbf{Ax4})}
+\end{prooftree}
+
+
+\begin{prooftree}
+    \AXC{$[\ ]\ cont$}
+    \UIC{$\vdots$}
+    \noLine
+    \UIC{$a \in Nat\ [a \in Nat, w \in Id(Nat, a, b)]$}
+    \AXC{(1)}
+    \noLine
+    \UIC{$a = b \in Nat\ [a \in Nat, w \in Id(Nat, a, b)]$}
+    % \RightLabel{)}
+    \BIC{$b \in Nat\ [a \in Nat, w \in Id(Nat, a, b)]$}
+    \noLine
+    \UIC{(\textbf{Ax5})}
+\end{prooftree}
+\begin{center}
+    $(1)\qquad$sse $nf(a) \equiv nf(b)$ allora con la prova $w$ posso concludere con l'uguaglianza computazionale
+\end{center}
+\begin{prooftree}
+    \AXC{$[\ ]\ cont$}
+    \RightLabel{Nat-F)}
+    \UIC{$Nat\ type\ [\ ]$}
+    \RightLabel{F-c)}
+    \UIC{$x \in Nat\ cont$}
+    \RightLabel{var)}
+    \UIC{$x \in Nat\ [x \in Nat]$}
+    \RightLabel{Nat-I$_2$)}
+    \UIC{$succ(x)\in Nat\ [x \in Nat]$}
+    \noLine
+    \UIC{(\textbf{Ax6})}
+\end{prooftree}
+\newpage
+
+\begin{prooftree}
+    \AXC{$[\ ]\ cont$}
+    \UIC{$\vdots$}
+    \noLine
+    \UIC{$x' \in Nat\ [\Gamma]$}
+    \AXC{$[\ ]\ cont$}
+    \UIC{$\vdots$}
+    \noLine
+    \UIC{$0 \in Nat\ [\Gamma]$}
+    \AXC{$[\ ]\ cont$}
+    \UIC{$\vdots$}
+    \noLine
+    \UIC{$x \in Nat\ [\Gamma, x \in Nat, z \in Nat]$}
+    \RightLabel{Nat-e)}
+    \TIC{$El_{Nat}(x', 0, (x, z).x)\in Nat\ [\Gamma, x' \in Nat)]$}
+    \dashedLine
+    \UIC{$prec(x')\in Nat\ [\Gamma, x' \in Nat)]$}
+    \RightLabel{I-Id)}
+    \UIC{$id(prec(x'))\in Id(Nat, prec(x'), prec(x'))\ [\Gamma, x' \in Nat)]$}
+    \noLine
+    \UIC{(C)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$Id(Nat, prec(\hat{x}), prec(\hat{y}))\ type\ [\Gamma, \hat{x} \in Nat, \hat{y} \in Nat, z \in Id(Nat, \hat{x}, \hat{y})]$}
+    \noLine
+    \UIC{(B)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{(B)}
+    \noLine
+    \UIC{$\cdots$}
+    \AXC{$succ(x) \in Nat\ [\Gamma]$}
+    \AXC{$succ(y) \in Nat\ [\Gamma]$}
+    \AXC{$b \in Id(Nat, succ(x), succ(y))$}
+    \AXC{(C)}
+    \noLine
+    \UIC{$\cdots$}
+    \RightLabel{E-Id)}
+    \QuinaryInfC{$El_{Id} (b, (x').id(prec(x'))) \in Id(Nat, prec(succ(x)), prec(succ(y)))\ [\Gamma, b \in Id(Nat, succ(x), succ(y))]$}
+    \dashedLine
+    \RightLabel{(2)}
+    \UIC{$El_{Id} (b, (x').id(prec(x'))) \in Id(Nat, x, y)\ [\Gamma, b \in Id(Nat, succ(x), succ(y))]$}
+    \RightLabel{I-$\to$)}
+    \UIC{$\lambda b.El_{Id} (b, (x').id(prec(x'))) \in Id(Nat, succ(x), succ(y)) \rightarrow Id(Nat, x, y)\ [\Gamma]$}
+    \noLine
+    \UIC{(A)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{(Equality preservation among programs \ref{es:eq_preservation_programs})}
+    \LeftLabel{E-Id)}
+    \UIC{$El_{Id}(a, (z).id(succ(z))) \in Id(Nat, succ(x), succ(y))\ [\Gamma, a \in Id(Nat, x, y)]$}
+    \LeftLabel{I-$\to$)}
+    \UIC{$\lambda a.El_{Id}(a, (z).id(succ(z))) \in Id(Nat, x, y) \rightarrow Id(Nat, succ(x), succ(y))\ [\Gamma]$}
+    \AXC{(A)}
+    \noLine
+    \UIC{$\cdots$}
+    % \AXC{$\lambda b.\cdots \in Id(Nat, succ(x), succ(y)) \rightarrow Id(Nat, x, y)\ [\Gamma]$}
+    \LeftLabel{I-$\times$)}
+    \BIC{$\langle \lambda a.\cdots, \lambda b.\cdots\rangle\in Id(Nat, x, y) \leftrightarrow Id(Nat, succ(x), succ(y))\ [x \in Nat, y \in Nat]$}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$\lambda y. \langle \lambda a.\cdots, \lambda b.\cdots\rangle\in \Pi_{y \in Nat} Id(Nat, x, y) \leftrightarrow Id(Nat, succ(x), succ(y))\ [x \in Nat]$}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$\lambda x. \lambda y. \langle \lambda a.\cdots, \lambda b.\cdots\rangle\in \Pi_{x \in Nat} \Pi_{y \in Nat} Id(Nat, x, y) \leftrightarrow Id(Nat, succ(x), succ(y))\ [\ ]$}
+    \noLine
+    \UIC{(\textbf{Ax7})}
+\end{prooftree}
+
+\begin{align*}
+    (2)\qquad prec\quad\equiv\quad &El_{Nat}(x, 0, (x, z).x) \in Nat\ [x \in Nat] \ Dove:\\
+    &El_{Nat} (succ(x), 0, (x, z).x) = x \in Nat\ [x \in Nat]\\
+    &El_{Nat} (0, 0, (x, z).x) = 0 \in Nat\ [x \in Nat]
+\end{align*}
+
+\begin{prooftree}
+    \AXC{(Nat terms inequality \ref{es:nat_inequality})}
+    \RightLabel{I-$\to$)}
+    \UIC{$\lambda w. Ap(\pi_1(k(\hat{N_1}, \hat{N_2}, p_f(w))), \star)\in Id(Nat, 0, succ(x)) \rightarrow N_0\ [x \in Nat]$}
+    \RightLabel{I-$\Pi$)}
+    \UIC{$\lambda x. \lambda w. Ap(\pi_1(k(\hat{N_1}, \hat{N_2}, p_f(w))), \star)\in \Pi_{x \in Nat} Id(Nat, 0, succ(x)) \rightarrow N_0\ [\ ]$}
+    \noLine
+    \UIC{(\textbf{Ax8})}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$\pi_1$}
+    \noLine
+    \UIC{$D\ type\ [\Gamma]$}
+    \AXC{$[\ ]\ cont$}
+    \RightLabel{Nat-F)}
+    \UIC{$Nat\ type\ [\ ]$}
+    \RightLabel{var)}
+    \UIC{$x \in Nat\ [x \in Nat]$}
+    \AXC{$\pi_2$}
+    \noLine
+    \UIC{$0 \in D\ [\Gamma]$}
+    \AXC{$\pi_3$}
+    \noLine
+    \UIC{$succ(x') \in D\ [x \in Nat, x' \in Nat, z \in Nat]$}
+    \RightLabel{Nat-e)}
+    \QuaternaryInfC{$El_{Nat}(x, 0, (x', z).succ(x')) \in D\ [x \in Nat]$}
+    \noLine
+    \UIC{(\textbf{Ax9})}
+\end{prooftree}
