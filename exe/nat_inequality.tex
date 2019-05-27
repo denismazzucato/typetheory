@@ -1,0 +1,12 @@
+\begin{displaymath}
+    \textbf{pf} \in Id(Nat, 0, 1) \rightarrow N_0\ [\ ]\quad \equiv\quad \neg (0 = 1)
+\end{displaymath}
+Date le seguenti definizioni:
+\begin{align*}
+    f\quad \equiv&\quad El_{Nat}(m, \hat{N_1}, (x, z).\hat{N_0}) \in U_0\ [m \in Nat]\\
+    p_f\quad \equiv&\quad El_{Id}(w, (x).id(f(x))) \in Id(U_0, f(0), f(1))\ [w \in Id(Nat, 0, 1)]\\
+    k\quad \equiv&\quad El_{Id}(w, (x).\langle \lambda y.y, \lambda y.y \rangle) \in T(x) \leftrightarrow T(y)\ [x \in U_0, y \in U_0, w \in Id(U_0, x, y)]
+\end{align*}
+In maniera simile alla prova \ref{es:bool_inequality}, la dimostrazione si basa sull'utilizzo degli universi.
+La funzione $f$ propaga elementi diversi all'interno di universi distinti per poterne poi effettuare l'uguaglianza, al posto di utilizzare l'eliminatore dei $Bool$ lo utilizzo sui $Nat$ propagando $\hat{N_1}$ se ho come input $0$ altrimenti $\hat{N_0}$.
+La funzione $k$ invece crea l'\textit{isomorfismo} necessario per distinguere $\hat{N_1}$ da $\hat{N_0}$.
