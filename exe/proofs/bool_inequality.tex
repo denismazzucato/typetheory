@@ -1,0 +1,98 @@
+\begin{prooftree}
+    \AXC{$\star \in N_1\ [w]$}
+    \AXC{$El_{Id}(El_{Id}(w, (x).id(El_{Bool}(x, (x).\hat{N_1},(x).\hat{N_0}))), (x).\langle\lambda y.y, \lambda y.y\rangle)
+    \in T(\hat{N_1}) \leftrightarrow T(\hat{N_0})\ [w]$}
+    \dashedLine
+    \UIC{$El_{Id}(El_{Id}(w, (x).id(f(x))),(x).\langle\lambda y.y, \lambda y.y\rangle)
+    \in T(\hat{N_1}) \leftrightarrow T(\hat{N_0})\ [w]$}
+    \dashedLine
+    \UIC{$El_{Id}(p_f(w), (x).\langle\lambda y.y, \lambda y.y\rangle)
+        \in T(\hat{N_1}) \leftrightarrow T(\hat{N_0})\ [w]$}
+    \dashedLine
+    \UIC{$k(\hat{N_1}, \hat{N_0}, p_f(w))
+        \in N_1 \leftrightarrow N_0\ [w]$}
+    \RightLabel{E$_1$-$\times$)}
+    \UIC{$\pi_1(k(\hat{N_1}, \hat{N_0}, p_f(w)))
+        \in N_1 \rightarrow N_0\ [w]$}
+    \RightLabel{E-$\to$)}
+    \BIC{$
+        Ap(\pi_1(k(\hat{N_1}, \hat{N_0}, p_f(w))), \star)
+        \in N_0
+        \ [w \in Id(Bool, true, false)]
+    $}
+    \RightLabel{I-$\to$)}
+    \UIC{$
+        \lambda w.Ap(\pi_1(k(\hat{N_1}, \hat{N_0}, p_f(w))), \star)
+        \in Id(Bool, true, false) \rightarrow N_0
+        \ [\ ]
+    $}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$y \in T(x')\ [\Gamma, y \in T(x')]$}
+    \RightLabel{I-$\to$)}
+    \UIC{$\lambda y.y \in T(x') \rightarrow T(x')\ [\Gamma]$}
+    \AXC{$y \in T(x')\ [\Gamma, y \in T(x')]$}
+    \RightLabel{I-$\to$)}
+    \UIC{$\lambda y.y \in T(x') \rightarrow T(x')\ [\Gamma]$}
+    \RightLabel{I-$\times$)}
+    \BIC{$\langle \lambda y.y, \lambda y.y \rangle
+        \in T(x') \leftrightarrow T(x')
+        \ [x, y, w, x' \in U_0]$}
+    \noLine
+    \UIC{(B)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$x' \in U_0\ [x, y, w, x' \in U_0, y', z]$}
+    \RightLabel{E-Un$_0$)}
+    \UIC{$T(x')\ type\ [x, y, w, x', y', z]$}
+    \AXC{$y' \in U_0\ [x, y, w, x', y' \in U_0, z]$}
+    \RightLabel{E-Un$_0$)}
+    \UIC{$T(y')\ type\ [x, y, w, x', y', z]$}
+    \RightLabel{F-$\times$)}
+    \BIC{$T(x') \leftrightarrow T(y')\ type\ [x, y, w, x' \in U_0, y' \in U_0, z \in Id(U_0, x', y')]$}
+    \noLine
+    \UIC{(A)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{(A)}
+    \noLine
+    \UIC{$\cdots$}
+    \AXC{$x \in U_0\ [x, y, w]$}
+    \AXC{$y \in U_0\ [x, y, w]$}
+    \AXC{$w \in Id(U_0, x, y)\ [x, y, w]$}
+    \AXC{(B)}
+    \noLine
+    \UIC{$\cdots$}
+    \RightLabel{E-Id)}
+    \QuinaryInfC{$
+        El_{Id}(w, (x).\langle \lambda y.y, \lambda y.y \rangle)
+        \in T(x) \leftrightarrow T(y)
+        \ [x \in U_0, y \in U_0, w \in Id(U_0, x, y)]$}
+    \noLine
+    \UIC{($k$)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$z \in Bool\ [z \in Bool]$}
+    \AXC{$\hat{N_1} \in U_0\ [z, x \in Bool]$}
+    \AXC{$\hat{N_0} \in U_0\ [z, x \in Bool]$}
+    \TIC{$
+        El_{Bool}(z, (x).\hat{N_1}, (x).\hat{N_0})
+        \in U_0
+        \ [z \in Bool]$}
+    \noLine
+    \UIC{($f$)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{(Equality preservation among programs)}
+    \UIC{$
+        El_{Id}(w, (x).id(f(x)))
+        \in Id(U_0, f(true), f(false))
+        \ [w \in Id(Bool, true, false)]$}
+    \noLine
+    \UIC{($p_f$)}
+\end{prooftree}
