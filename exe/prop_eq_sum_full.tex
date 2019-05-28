@@ -2,10 +2,13 @@
     \textbf{pf} \in Id(Nat, x' +_1 y', x' +_2 y')\ [x' \in Nat, y' \in Nat]
 \end{displaymath}
 Date le seguenti definizioni:
-\begin{itemize}
-    \item $x' +_1 y' \equiv El_{Nat} (y', x', (x, z).succ(z))$
-    \item $x' +_2 y' \equiv El_{Nat} (x', y', (x, z).succ(z))$
-    \item $Id_N(a, b) \equiv Id(Nat, a, b)$
-\end{itemize}
-Per questa dimostrazione ho utilizzato la sintassi più sintetica possibile, questo significa che alcuni passaggi sono stati completamente saltati, ad esempio, se una regola richiede il \textit{check} di una variabile in contesto e quella variabile è presente non vado a derivarla.
-Inoltre per non incuinare troppo il contesto se per esempio ho da aggiungere una $x$ al contesto in cui appare già una $x$ semplicemente la sua precedente apparizione la nascondo sotto $\Gamma$ (diventa quindi \textit{inacessibile}).
+\begin{align*}
+    s\quad&\equiv\quad succ\\
+    x' +_1 y' \quad&\equiv\quad El_{Nat} (y', x', (x, z).s(z))\\
+    x' +_2 y' \quad&\equiv\quad El_{Nat} (x', y', (x, z).s(z))\\
+    Id_N(a, b) \quad&\equiv\quad Id(Nat, a, b)\\
+    c \quad&\equiv\quad id(s(x)) \\
+    e \quad&\equiv\quad El_{Id}(z, c) \\
+    w \quad&\equiv\quad El_{Nat} (x', id(s(y)), e) \\
+    e' \quad&\equiv\quad Ap(\lambda w_1'. Ap(\lambda w_2'. Ap(El_{Id}(w_2', \lambda w'.w'), w_1'),w), e)
+\end{align*}

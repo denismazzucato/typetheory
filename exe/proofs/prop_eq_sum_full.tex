@@ -1,32 +1,77 @@
 \begin{prooftree}
-    \AXC{$El_{Nat}(y, id(0), ??) \in Id_N(0 +_1 y, y) [\Gamma]$}
-    \UIC{$d' \in Id_N(succ(0 +_1 y), succ(y))\ [\Gamma]$}
+    \AXC{(Transitivity \ref{es:transitivity_ml})}
+    \UIC{$Ap(El_{Id}(w_2', \lambda w'.w'), w_1') \in Id_N(s(x' +_1 y), x' +_2 s(y))\ [\Gamma, w_2 \in Id_N(s(x' +_2 y), x' +_2 s(y))]$}
+    \RightLabel{I-$\to$)}
+    \UIC{$\lambda w_2'. Ap(El_{Id}(w_2', \lambda w'.w'), w_1') \in Id_N(s(x' +_2 y), x' +_2 s(y)) \rightarrow Id_N(s(x' +_1 y), x' +_2 s(y))\ [\Gamma]$}
+    \noLine
+    \UIC{(D)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{(Equality preservation \ref{es:eq_preservation_programs})}
+    \UIC{$El_{Id}(z, c) \in Id_N(s(s(x +_2 y)), s(x +_2 s(y)))\ [\Gamma]$}
     \dashedLine
-    \UIC{$d' \in Id_N(succ(0 +_1 y), 0 +_2 succ(y))\ [\Gamma]$}
-    \AXC{(Equality preserv. \ref{es:eq_preservation_programs})}
-    \UIC{$e' \in Id_N(succ(succ(x) +_1 y), succ(x +_2 succ(y)))\ [\Gamma, x \in Nat, z' \in Id_N(succ(x +_1 y), x +_2 succ(y))]$}
+    \UIC{$El_{Id}(z, c) \in Id_N(s(s(x) +_2 y), s(x) +_2 s(y))\ [\Gamma, x \in Nat, z' \in Id_N(s(x +_2 y), x +_2 s(y))]$}
+    \noLine
+    \UIC{(E)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$\cdots$}
+    \AXC{$id(s(y)) \in Id_N(s(y), s(y))\ [\Gamma]$}
     \dashedLine
-    \UIC{$e' \in Id_N(succ(succ(x) +_1 y), succ(x) +_2 succ(y))\ [\Gamma, x \in Nat, z' \in Id_N(succ(x +_1 y), x +_2 succ(y))]$}
+    \UIC{$id(s(y)) \in Id_N(s(0 +_2 y), 0 +_2 s(y))\ [\Gamma]$}
+    \AXC{(E)}
+    \noLine
+    \UIC{$\cdots$}
     \RightLabel{Nat-e)}
-    \BIC{$ El_{Nat}(x', , )\in Id_N(succ(x' +_1 y), x' +_2 succ(y))\ [\Gamma, y \in Nat, z \in Id_N(x' +_1 y, x' +_2 y)]$}
+    \TIC{$El_{Nat} (x', id(s(y)), e) \in Id_N(s(x' +_2 y), x' +_2 s(y))\ [\Gamma]$}
+    \dashedLine
+    \UIC{$w \in Id_N(s(x' +_2 y), x' +_2 s(y))\ [\Gamma]$}
+    \noLine
+    \UIC{(C)}
+\end{prooftree}
+
+
+\begin{prooftree}
+    \AXC{(C)}
+    \noLine
+    \UIC{$w \in Id_N(s(x' +_2 y), x' +_2 s(y))\ [\Gamma]$}
+    \AXC{(D)}
+    \noLine
+    \UIC{$\cdots$}
+    \RightLabel{E-$\to$)}
+    \BIC{$Ap(\lambda w_2'. Ap(\cdots),w) \in Id_N(s(x' +_1 y), x' +_2 s(y))\ [\Gamma, w_1 \in Id_N(s(x' +_1 y), s(x' +_2 y))]$}
+    \RightLabel{I-$\to$)}
+    \UIC{$\lambda w_1.Ap(\lambda w_2'. Ap(\cdots),w) \in Id_N(s(x' +_1 y), s(x' +_2 y)) \rightarrow Id_N(s(x' +_1 y), x' +_2 s(y))\ [\Gamma]$}
+    \noLine
+    \UIC{(B)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{(Equality preservation \ref{es:eq_preservation_programs})}
+    \UIC{$e \in Id_N(s(x' +_1 y), s(x' +_2 y))\ [\Gamma]$}
+    \AXC{(B)}
+    \noLine
+    \UIC{$\cdots$}
+    \RightLabel{E-$\to$)}
+    \BIC{$Ap(\lambda w_1'. Ap(\cdots), e) \in Id_N(s(x' +_1 y), x' +_2 s(y))\ [\Gamma]$}
+    \dashedLine
+    \UIC{$e' \in Id_N(x' +_1 s(y), x' +_2 s(y))\ [\Gamma, y \in Nat, z \in Id_N(x' +_1 y, x' +_2 y)]$}
     \noLine
     \UIC{(A)}
 \end{prooftree}
 
 \begin{prooftree}
+    \AXC{$\cdots$}
     \AXC{(Propositional Eq. (Basic) \ref{es:prop_eq_sum})}
-    \UIC{$d \in Id_{N}(x', x' +_2 0) [\Gamma]$}
+    \LeftLabel{Nat-e)}
+    \UIC{$El_{Nat}(x', id(0), e) \in Id_N(x', x' +_2 0)\ [x', y']$}
     \dashedLine
-    \UIC{$d \in Id_{N}(x' +_1 0, x' +_2 0) [\Gamma]$}
+    \UIC{$El_{Nat}(x', id(0), e) \in Id_N(x' +_1 0, x' +_2 0)\ [x', y']$}
     \AXC{(A)}
     \noLine
-    \UIC{$e \in Id_N(succ(x' +_1 y), x' +_2 succ(y))\ [\Gamma, y \in Nat, z \in Id_N(x' +_1 y, x' +_2 y)]$}
-    \dashedLine
-    \UIC{$e \in Id_N(x' +_1 succ(y), x' +_2 succ(y))\ [\Gamma, y \in Nat, z \in Id_N(x' +_1 y, x' +_2 y)]$}
+    \UIC{$\cdots$}
     \RightLabel{Nat-e)}
-    \BIC{$
-        El_{Nat}(y', d, e)
-        \in Id_N(x' +_1 y', x' +_2 y')
-        \ [x' \in Nat, y' \in Nat]
-    $}
+    \TIC{$El_{Nat}(y', El_{Nat}(x', id(0), e), e') \in Id_N(x' +_1 y', x' +_2 y')\ [x' \in Nat, y' \in Nat]$}
 \end{prooftree}
