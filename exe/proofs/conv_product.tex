@@ -1,0 +1,72 @@
+\begin{prooftree}
+    \AXC{$a \in A\ [\Gamma]$}
+    \RightLabel{I-Id)}
+    \UIC{$id(a) \in Id(A, a, a)\ [\Gamma]$}
+    \AXC{$a \in A\ [\Gamma]$}
+    \RightLabel{ref)}
+    \UIC{$a = a \in A\ [\Gamma]$}
+    \AXC{$\pi_1$}
+    \noLine
+    \UIC{$a = b \in A\ [\Gamma]$}
+    \RightLabel{sub)}
+    \BIC{$Id(A, a, a) = Id(A, a, b)\ type\ [\Gamma]$}
+    \RightLabel{conv)}
+    \BIC{$id(a) \in Id(A, a, b)\ [a \in A, b \in A]$}
+    \noLine
+    \UIC{(Lemma 1)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$a \in A\ [\Gamma]$}
+    \AXC{$b \in B\ [\Gamma]$}
+    \RightLabel{F-$\times$)}
+    \BIC{$\langle a, b \rangle \in A \times B\ [\Gamma]$}
+    \RightLabel{I-Id)}
+    \UIC{$id(\langle a, b \rangle)\in Id(A \times B, \langle a, b\rangle, \langle a, b\rangle)\ [\Gamma, b \in B]$}
+    \noLine
+    \UIC{(B)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$\pi_2(\langle a, y\rangle) \in B\ [\Gamma]$}
+    \AXC{$y \in B\ [\Gamma]$}
+    \AXC{$a \in A\ [\Gamma]$}
+    \AXC{$y \in B\ [\Gamma]$}
+    \RightLabel{$\beta_2$-$\times$)}
+    \BIC{$\pi_2(\langle a, y\rangle) = y \in B\ [\Gamma]$}
+    \RightLabel{L1)}
+    \UIC{$id(y) \in Id(B, \pi_2(\langle a, y\rangle), y)\ [\Gamma]$}
+    \AXC{(B)}
+    \noLine
+    \UIC{$\cdots$}
+    \RightLabel{E-Id)$^{(2)}$}
+    \QuaternaryInfC{$El_{Id}(id(y), (b).id(\langle a, b \rangle)) \in Id(A \times B, \langle a, \pi_2(\langle a, y\rangle)\rangle, \langle a, y\rangle)\ [\Gamma, a \in A]$}
+    \noLine
+    \UIC{(A)}
+\end{prooftree}
+
+\begin{prooftree}
+    \AXC{$z \in A \times B\ [z \in A \times B]$}
+    \AXC{$\pi_1(\langle x, y\rangle) \in A\ [\Gamma]$}
+    \AXC{$x \in A\ [\Gamma]$}
+    \AXC{$x \in A\ [\Gamma]$}
+    \AXC{$y \in B\ [\Gamma]$}
+    \RightLabel{$\beta_1$-$\times$)}
+    \BIC{$\pi_1(\langle x, y\rangle) = x \in B\ [\Gamma]$}
+    \RightLabel{L1)}
+    \UIC{$id(x) \in Id(A, \pi_1(\langle x, y\rangle), x)\ [\Gamma]$}
+    \AXC{(A)}
+    \noLine
+    \UIC{$\cdots$}
+    \RightLabel{E-Id)$^{(1)}$}
+    \QuaternaryInfC{$El_{Id}(id(x), El_{Id}(\cdots) \in Id(A \times B, \langle\pi_1(\langle x, y\rangle), \pi_2(\langle x, y\rangle)\rangle, \langle x, y\rangle)\ [z, x \in A, y \in B]$}
+    \RightLabel{E-$\Pi$)}
+    \BIC{$El_\Sigma(z, El_{Id}(id(x), (a).El_{Id}(id(y), (b).id(\langle a, b \rangle)))) \in Id(A \times B, \langle\pi_1(z), \pi_2(z)\rangle, z)\ [z \in A \times B]$}
+\end{prooftree}
+
+\begin{align*}
+    (1)\qquad &C(a, b, p) \equiv Id(A \times B, \langle a, \pi_2(\langle b, y\rangle)\rangle, \langle b, y\rangle)\\
+    equivalentemente \qquad&C(a, b, p) \equiv Id(A \times B, \langle \pi_1(\langle x, y\rangle), \pi_2(\langle x, y\rangle)\rangle, \langle x, y\rangle)\{\pi_1(\langle x, y\rangle) \mapsto a, x \mapsto b\}\\\\
+    (2)\qquad &C(a', b', p) \equiv Id(A \times B, \langle a, a'\rangle, \langle a, b'\rangle)\\
+    equivalentemente \qquad&C(a', b', p) \equiv Id(A \times B, \langle a, \pi_2(\langle a, y\rangle)\rangle, \langle a, y\rangle)\{\pi_2(\langle a, y\rangle) \mapsto a', y \mapsto b'\}
+\end{align*}
