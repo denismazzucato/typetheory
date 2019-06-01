@@ -115,7 +115,6 @@ _ =
     succ ((succ m) +₁ n)
   ∎
 
-
 +₂-succ : ∀ (m n : ℕ) → (succ m) +₂ n ≡ succ (m +₂ n)
 +₂-succ m zero =
   begin
