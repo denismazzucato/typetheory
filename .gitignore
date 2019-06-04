@@ -244,3 +244,4 @@ TSWLatexianTemp*
 # agda
 agda-scripts/*~
 agda-scripts/*.agdai
+agda-scripts/#*.agda#
