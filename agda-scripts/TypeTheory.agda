@@ -94,16 +94,15 @@ El-N₁ ⋆ c = c
 data _×_ (A B : Set) : Set where
   ⟨_,_⟩ : A → B → A × B
 
+
+El-× : ∀ {A B : Set} {M : A × B → Set} → (d : A × B) → ((x : A) → (y : B) → M ⟨ x , y ⟩) → M d
+El-× ⟨ x , y ⟩ m = m x y
+
 π₁ : ∀ {A B : Set} → A × B → A
-π₁ ⟨ x , y ⟩ = x
+π₁ x = El-× x λ x _ → x
 
 π₂ : ∀ {A B : Set} → A × B → B
-π₂ ⟨ x , y ⟩ = y
-
--- _⇔_ : (A B : Set) → (A → B) × (B → A)
--- a ⇔ b = ⟨  {!!} , {!!} ⟩
--- data _⇔_ (A B : Set) : Set where
--- pattern _⇔_ A B = (A → B) × (B → A)
+π₂ x = El-× x λ _ y → y
 
 data U₀ : Set where
   N₀̂ : U₀ -- empty
@@ -129,15 +128,8 @@ neq w = (π₁ (k N₁̂ N₀̂ (eq-pres f w))) ⋆
 -- ac
 -- definition of Product Type
 data Σ {A : Set} (B : A → Set) : Set where
-  ⟨_,_⟩ : (x : A) → B x → Σ \(x' : A) → B x'
+  ⟪_,_⟫ : (x : A) → B x → Σ λ(x' : A) → B x'
 
--- left projection
-proj₁ : {A : Set} {B : A → Set} → (Σ \(x : A) → B x) → A
-proj₁ ⟨ a , b ⟩ = a
-
--- right proj₁rojection
-proj₂ : {A : Set} {B : A → Set} → (c : Σ \(x : A) → B x) → B (proj₁ c)
-proj₂ ⟨ a , b ⟩ = b
 
 -- the function type is already defined but we can define the Π to obtain a notation
 -- closer to ML
@@ -145,7 +137,25 @@ proj₂ ⟨ a , b ⟩ = b
 Π : {X : Set} → (Y : X → Set) → Set
 Π {X} Y = (x : X) → Y x
 
+-- left projection
+proj₁ : {A : Set} {B : A → Set} → (Σ λ(x : A) → B x) → A
+proj₁ ⟪ a , b ⟫ = a
+
+-- right proj₁rojection
+proj₂ : {A : Set} {B : A → Set} → (c : Σ λ(x : A) → B x) → B (proj₁ c)
+proj₂ ⟪ a , b ⟫ = b
+
 axiom-of-choice : {A : Set} {B : A → Set} {C : (x : A) → B x → Set}
-  → Π \(z : Π \(x : A) → (Σ \(y : B x) → C x y))
-  → Σ \(f : Π \(x : A) → B x) → Π \(x : A) → C x (f x)
-axiom-of-choice = λ z → ⟨ (λ x → proj₁ (z x)), (λ x → proj₂ (z x)) ⟩
+  → Π λ(z : Π λ(x : A) → (Σ λ(y : B x) → C x y))
+  → Σ λ(f : Π λ(x : A) → B x) → Π λ(x : A) → C x (f x)
+axiom-of-choice = λ z → ⟪ (λ x → proj₁ (z x)) , (λ x → proj₂ (z x)) ⟫
+
+-- η-conversion
+η-conv : ∀ {A B : Set } → (z : A × B) → Id ⟨ π₁ z , π₂ z ⟩ , z
+η-conv z = El-× {M = λ z → Id ⟨ π₁ z , π₂ z ⟩ , z}
+  z
+  λ x y →  El-Id {C = λ a b _ → Id ⟨ a , π₂ ⟨ b , y ⟩ ⟩ , ⟨ b , y ⟩ } 
+    (id x)
+    λ a → El-Id {C = λ a′ b′ _  → Id ⟨ a , a′ ⟩ , ⟨ a , b′ ⟩} 
+      (id y)
+      λ b → id ⟨ a , b ⟩
