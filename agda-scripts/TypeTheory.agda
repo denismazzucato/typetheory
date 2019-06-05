@@ -163,16 +163,14 @@ axiom-of-choice = λ z → ⟪ (λ x → proj₁ (z x)) , (λ x → proj₂ (z x
       λ b → id ⟨ a , b ⟩
 
 -- peano axioms
-_*_ : ∀ (x y : ℕ) → ℕ
-zero * y = zero
-suc x * y = y + (x * y)
+-- _*_ : ∀ (x y : ℕ) → ℕ
+-- x * y = El-ℕ x 0 λ x z → (y + z)
 
-infixl 6 _+_
-infixl 7 _*_
+-- infixl 6 _+_
+-- infixl 7 _*_ 
 
-pre : ℕ → ℕ
-pre zero = zero
-pre (suc x) = x
+pre : ℕ → ℕ -- used in ax₂
+pre x = El-ℕ x zero λ x _ → x
 
 -- ax1
 ax₁ : ∀ {x : ℕ} → Id (suc x) , 0 → N₀
@@ -191,14 +189,10 @@ ax₃ {x} = symmetric (lemma₁ x )
 ax₄ : ∀ {x y : ℕ} → Id (x + suc y) , (suc (x + y))
 ax₄ {x} {y} = lemma₂ x y
 
---ax5
-ax₅ : ∀ {x : ℕ} → Id (x * 0) , 0
-ax₅ {x} = El-ℕ x (id 0) λ x (z : Id x * 0 , 0) → z
+--ax5 and ax6 are almost the same as ax3 and ax4, the formers use * op while the latters use + instead
+-- ax₅ : ∀ {x : ℕ} → Id (x * 0) , 0
+-- ax₆ : ∀ {x y : ℕ} → Id (x * suc y) , (x * y + x)
 
---ax6
-ax₆ : ∀ {x y : ℕ} → Id (x * suc(y)) , (x * y + x)
-ax₆ {x} {y} = {!!}
-
---ax7                   x     x₁                             x₂
+--ax7                      x     x₁                             x₂
 ax₇ : ∀ {A : ℕ → Set} → A 0 → ((x : ℕ) → A x → A (suc x)) → ((x : ℕ) → A x)
 ax₇ {A} = λ x x₁ x₂ → El-ℕ x₂ x x₁
