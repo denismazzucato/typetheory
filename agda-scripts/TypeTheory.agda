@@ -126,10 +126,9 @@ neq : Id 0 , 1 → N₀
 neq w = (π₁ (k N₁̂ N₀̂ (eq-pres f w))) ⋆
 
 -- ac
--- definition of Product Type
+-- definition of Product Type dependant
 data Σ {A : Set} (B : A → Set) : Set where
   ⟪_,_⟫ : (x : A) → B x → Σ λ(x' : A) → B x'
-
 
 -- the function type is already defined but we can define the Π to obtain a notation
 -- closer to ML
@@ -159,3 +158,44 @@ axiom-of-choice = λ z → ⟪ (λ x → proj₁ (z x)) , (λ x → proj₂ (z x
     λ a → El-Id {C = λ a′ b′ _  → Id ⟨ a , a′ ⟩ , ⟨ a , b′ ⟩} 
       (id y)
       λ b → id ⟨ a , b ⟩
+
+-- peano axioms
+_*_ : ∀ (x y : ℕ) → ℕ
+zero * y = zero
+suc x * y = y + (x * y)
+
+infixl 6 _+_
+infixl 7 _*_
+
+pre : ℕ → ℕ
+pre zero = zero
+pre (suc x) = x
+
+-- ax1
+ax₁ : ∀ {x : ℕ} → Id (suc x) , 0 → N₀
+ax₁ {x} w = (π₁ (k N₁̂ N₀̂ (eq-pres f (symmetric w)))) ⋆
+
+--ax2
+ax₂ : ∀ {x y : ℕ} → Id (suc x) , (suc y) → Id x , y
+ax₂ {x} {y} = eq-pres pre
+
+
+--ax3
+ax₃ : ∀ {x : ℕ} → Id (x + 0) , x
+ax₃ {x} = symmetric (lemma₁ x )
+
+--ax4
+ax₄ : ∀ {x y : ℕ} → Id (x + suc y) , (suc (x + y))
+ax₄ {x} {y} = lemma₂ x y
+
+--ax5
+ax₅ : ∀ {x : ℕ} → Id (x * 0) , 0
+ax₅ {x} = El-ℕ x (id 0) λ x (z : Id x * 0 , 0) → z
+
+--ax6
+ax₆ : ∀ {x y : ℕ} → Id (x * suc(y)) , (x * y + x)
+ax₆ {x} {y} = {!!}
+
+--ax7                   x     x₁                             x₂
+ax₇ : ∀ {A : ℕ → Set} → A 0 → ((x : ℕ) → A x → A (suc x)) → ((x : ℕ) → A x)
+ax₇ {A} = λ x x₁ x₂ → El-ℕ x₂ x x₁
