@@ -104,6 +104,9 @@ El-× ⟨ x , y ⟩ m = m x y
 π₂ : ∀ {A B : Set} → A × B → B
 π₂ x = El-× x λ _ y → y
 
+_⇔_ : (A B : Set) → Set
+A ⇔ B = (A → B) × (B → A)
+
 data U₀ : Set where
   N₀̂ : U₀ -- empty
   N₁̂ : U₀ -- singleton
@@ -116,8 +119,8 @@ T N₁̂ = N₁
 f : ℕ → U₀
 f m = El-ℕ m N₁̂ λ _ _ → N₀̂ -- no recursion
 
-k : (x y : U₀) → Id x , y → (T x → T y) × (T y → T x)
-k x y w = El-Id {C = λ x y _ → (T x → T y) × (T y → T x) }
+k : (x y : U₀) → Id x , y → (T x ⇔ T y)
+k x y w = El-Id {C = λ x y _ → (T x ⇔ T y) }
   w
   λ _ → ⟨ (λ y → y) , (λ y → y) ⟩
 
